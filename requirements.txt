@@ -1,6 +1,6 @@
 soundfile
-torch
-torchaudio
+# torch
+# torchaudio
 transformers
 pyaudio
 webrtcvad

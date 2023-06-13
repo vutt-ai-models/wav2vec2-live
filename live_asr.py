@@ -74,7 +74,7 @@ class LiveWav2Vec2:
 
     @staticmethod
     def asr_process(model_name, in_queue, output_queue):
-        wave2vec_asr = Wave2Vec2Inference(model_name, use_lm_if_possible=True)
+        wave2vec_asr = Wave2Vec2Inference(model_name, use_lm_if_possible=False, use_gpu=False)
 
         print("\nlistening to your voice\n")
         while True:
