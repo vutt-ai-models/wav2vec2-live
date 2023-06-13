@@ -25,8 +25,9 @@ class Wave2Vec2Inference:
         inputs = self.processor(torch.tensor(audio_buffer), sampling_rate=16_000, return_tensors="pt", padding=True)
 
         with torch.no_grad():
-            logits = self.model(inputs.input_values.to(self.device),
-                                attention_mask=inputs.attention_mask.to(self.device)).logits            
+            # logits = self.model(inputs.input_values.to(self.device),
+            #                     attention_mask=inputs.attention_mask.to(self.device)).logits            
+            logits = self.model(inputs.input_values.to(self.device)).logits          
 
         if hasattr(self.processor, 'decoder') and self.use_lm_if_possible:
             transcription = \

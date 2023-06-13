@@ -86,6 +86,7 @@ class LiveWav2Vec2:
                 audio_frames, dtype=np.int16) / 32767
             start = time.perf_counter()
             text, confidence = wave2vec_asr.buffer_to_text(float64_buffer)
+            print(text)
             text = text.lower()
             inference_time = time.perf_counter()-start
             sample_length = len(float64_buffer) / 16000  # length in sec
@@ -118,7 +119,9 @@ class LiveWav2Vec2:
 if __name__ == "__main__":
     print("Live ASR")
 
-    asr = LiveWav2Vec2("oliverguhr/wav2vec2-large-xlsr-53-german-cv9")
+    # asr = LiveWav2Vec2("oliverguhr/wav2vec2-large-xlsr-53-german-cv9")
+    asr = LiveWav2Vec2("facebook/wav2vec2-base-960h")
+
 
     asr.start()
 
